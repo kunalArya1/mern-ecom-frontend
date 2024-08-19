@@ -3,6 +3,8 @@ import { CgClose } from "react-icons/cg";
 import toast from "react-hot-toast";
 import axios from "axios";
 import productCategory from "../helper/productCategory";
+const apiurl = import.meta.env.VITE_API_URL;
+
 
 const UploadProduct = ({ onClose, onProductUploaded }) => {
   const initialUserState = {
@@ -90,7 +92,7 @@ const UploadProduct = ({ onClose, onProductUploaded }) => {
     };
 
     try {
-      const response = await axios.post("/api/add-product", productData, {
+      const response = await axios.post(`${apiurl}/api/add-product`, productData, {
         headers: {
           "Content-Type": "application/json",
         },
